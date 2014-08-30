@@ -272,8 +272,8 @@ module Rack
 
         # Strip all the caching headers so we don't get 304s back
         #  This solves a very annoying bug where rack mini profiler never shows up
-        env['HTTP_IF_MODIFIED_SINCE'] = ''
-        env['HTTP_IF_NONE_MATCH'] = ''
+        #env['HTTP_IF_MODIFIED_SINCE'] = ''
+        #env['HTTP_IF_NONE_MATCH'] = ''
 
         if query_string =~ /pp=flamegraph/
           unless defined?(Flamegraph) && Flamegraph.respond_to?(:generate)
