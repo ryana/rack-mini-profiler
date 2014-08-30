@@ -372,10 +372,7 @@ module Rack
       # mini profiler is meddling with stuff, we can not cache cause we will get incorrect data
       # Rack::ETag has already inserted some nonesense in the chain
       content_type = headers['Content-Type']
-
-      headers.delete('ETag')
-      headers.delete('Date')
-      headers['Cache-Control'] = 'no-store, must-revalidate, private, max-age=0'
+      headers['Cache-Control'] = 'must-revalidate, private, max-age=0'
 
       # inject header
       if headers.is_a? Hash
